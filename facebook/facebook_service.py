@@ -15,8 +15,8 @@ def pipeline_service(pipeline: AdsInsights):
         start: Optional[str],
         end: Optional[str],
     ) -> dict[str, Union[str, int]]:
-        ads_account_id = '12726671'
-        
+        ads_account_id = "12726671"
+
         _start = (
             (datetime.utcnow() - timedelta(days=8))
             if not start
@@ -32,7 +32,7 @@ def pipeline_service(pipeline: AdsInsights):
                 "end": end,
                 "output_rows": x,
             },
-            load(pipeline.name, pipeline.schema, ads_account_id),
+            load(pipeline.name, pipeline.schema, pipeline.id_key, ads_account_id),
             pipeline.transform,
             get(pipeline.level, pipeline.fields, pipeline.breakdowns),
         )(ads_account_id, _start, _end)
