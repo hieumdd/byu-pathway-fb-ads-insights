@@ -7,7 +7,7 @@ def main(request):
     data: dict[str, Any] = request.get_json()
     print(data)
 
-    if "table" in data and "ads_account_id" in data:
+    if "table" in data:
         response = facebook_controller(data)
         print(response)
         return response
