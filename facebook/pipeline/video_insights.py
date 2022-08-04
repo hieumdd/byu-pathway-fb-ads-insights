@@ -43,7 +43,7 @@ video_insights = AdsInsights(
                 "video_name": row["video_asset"].get("video_name"),
                 "id": row["video_asset"].get("id"),
             }
-            if row.get("video_asset", {})
+            if row.get("video_asset")
             else {},
             "actions": [
                 {
@@ -56,7 +56,7 @@ video_insights = AdsInsights(
                 }
                 for action in row["actions"]
             ]
-            if row.get("actions", [])
+            if row.get("actions")
             else [],
             "action_values": [
                 {
@@ -69,7 +69,7 @@ video_insights = AdsInsights(
                 }
                 for action in row["action_values"]
             ]
-            if row.get("action_values", [])
+            if row.get("action_values")
             else [],
         }
         for row in rows

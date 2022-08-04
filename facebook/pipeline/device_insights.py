@@ -30,7 +30,7 @@ device_insights = AdsInsights(
             "cpm": row.get("cpm"),
             "ctr": row.get("ctr"),
             "clicks": row.get("clicks"),
-            "spend": row["spend"],
+            "spend": row.get("spend"),
             "actions": [
                 {
                     "action_type": action.get("action_type"),
@@ -42,7 +42,7 @@ device_insights = AdsInsights(
                 }
                 for action in row["actions"]
             ]
-            if row.get("actions", [])
+            if row.get("actions")
             else [],
             "action_values": [
                 {
@@ -55,7 +55,7 @@ device_insights = AdsInsights(
                 }
                 for action in row["action_values"]
             ]
-            if row.get("action_values", [])
+            if row.get("action_values")
             else [],
             "cost_per_action_type": [
                 {
@@ -68,7 +68,7 @@ device_insights = AdsInsights(
                 }
                 for action in row["cost_per_action_type"]
             ]
-            if row.get("cost_per_action_type", [])
+            if row.get("cost_per_action_type")
             else [],
             "cost_per_unique_action_type": [
                 {
@@ -81,7 +81,7 @@ device_insights = AdsInsights(
                 }
                 for action in row["cost_per_unique_action_type"]
             ]
-            if row.get("cost_per_unique_action_type", [])
+            if row.get("cost_per_unique_action_type")
             else [],
         }
         for row in rows
@@ -101,7 +101,7 @@ device_insights = AdsInsights(
         {
             "name": "actions",
             "type": "record",
-            "mode": "repeated",
+            "mode": "REPEATED",
             "fields": [
                 {"name": "action_type", "type": "STRING"},
                 {"name": "value", "type": "NUMERIC"},
@@ -114,7 +114,7 @@ device_insights = AdsInsights(
         {
             "name": "action_values",
             "type": "record",
-            "mode": "repeated",
+            "mode": "REPEATED",
             "fields": [
                 {"name": "action_type", "type": "STRING"},
                 {"name": "value", "type": "NUMERIC"},
@@ -127,7 +127,7 @@ device_insights = AdsInsights(
         {
             "name": "cost_per_action_type",
             "type": "record",
-            "mode": "repeated",
+            "mode": "REPEATED",
             "fields": [
                 {"name": "action_type", "type": "STRING"},
                 {"name": "value", "type": "NUMERIC"},
@@ -140,7 +140,7 @@ device_insights = AdsInsights(
         {
             "name": "cost_per_unique_action_type",
             "type": "record",
-            "mode": "repeated",
+            "mode": "REPEATED",
             "fields": [
                 {"name": "action_type", "type": "STRING"},
                 {"name": "value", "type": "NUMERIC"},
@@ -150,7 +150,6 @@ device_insights = AdsInsights(
                 {"name": "_7d_click", "type": "NUMERIC"},
             ],
         },
-        {"name": "_batched_at", "type": "TIMESTAMP"},
     ],
     [
         "date_start",

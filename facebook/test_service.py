@@ -4,7 +4,7 @@ from facebook.pipeline import pipelines
 from facebook.facebook_service import pipeline_service
 
 TIMEFRAME = [
-    ("auto", (None, None)),
+    # ("auto", (None, None)),
     ("manual", ("2022-07-01", "2022-07-27")),
 ]
 

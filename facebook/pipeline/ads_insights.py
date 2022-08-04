@@ -46,7 +46,7 @@ ads_insights = AdsInsights(
                 }
                 for action in row["actions"]
             ]
-            if row.get("actions", [])
+            if row.get("actions")
             else [],
             "action_values": [
                 {
@@ -59,7 +59,7 @@ ads_insights = AdsInsights(
                 }
                 for action in row["action_values"]
             ]
-            if row.get("action_values", [])
+            if row.get("action_values")
             else [],
         }
         for row in rows
