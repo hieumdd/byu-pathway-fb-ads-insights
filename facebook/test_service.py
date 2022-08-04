@@ -1,7 +1,7 @@
 import pytest
 
 from facebook.pipeline import pipelines
-from facebook.facebook_service import pipeline_service
+from facebook.facebook_service import pipeline_service, tasks_service
 
 TIMEFRAME = [
     # ("auto", (None, None)),
@@ -24,4 +24,8 @@ def pipeline(request):
 
 def test_pipeline_service(pipeline, timeframe):
     res = pipeline_service(pipeline, *timeframe)
+    res
+
+def test_tasks_service(timeframe):
+    res = tasks_service(*timeframe)
     res

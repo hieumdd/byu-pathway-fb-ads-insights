@@ -36,6 +36,7 @@ jobs:
 
       - run: |
           echo "DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}" >> ${{ env.ENV_FILE }}
+          
           echo "GCP_SA: ${{ env.GCP_SA }}" >> ${{ env.ENV_FILE }}
           echo "PUBLIC_URL: ${{ env.PUBLIC_URL }}" >> ${{ env.ENV_FILE }}
 
