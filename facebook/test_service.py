@@ -14,7 +14,7 @@ def timeframe(request):
     return request.param
 
 
-@pytest.fixture(
+@pytest.fixture(  # type: ignore
     params=pipelines.values(),
     ids=pipelines.keys(),
 )
@@ -22,6 +22,6 @@ def pipeline(request):
     return request.param
 
 
-def test_service(pipeline, timeframe):
-    res = pipeline_service(pipeline)(*timeframe)
+def test_pipeline_service(pipeline, timeframe):
+    res = pipeline_service(pipeline, *timeframe)
     res

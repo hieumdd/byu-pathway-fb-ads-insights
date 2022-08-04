@@ -34,7 +34,7 @@ def load(
         _rows, _schema = with_batched_at(data, schema)
 
         output_rows = (
-            BQ_CLIENT.load_table_from_json(
+            BQ_CLIENT.load_table_from_json( # type: ignore
                 _rows,
                 f"{DATASET}.{table}_{ads_account_id}",
                 job_config=bigquery.LoadJobConfig(
@@ -50,6 +50,7 @@ def load(
         return output_rows
 
     return _load
+
 
 def _update(table: str, id_key: list[str], ads_account_id: str):
     BQ_CLIENT.query(

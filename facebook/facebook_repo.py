@@ -71,7 +71,7 @@ def _request_async_report(session: requests.Session):
             params["breakdowns"] = breakdowns
         with session.post(
             f"{BASE_URL}/act_{ads_account_id}/insights",
-            params=params,
+            params=params,  # type: ignore
         ) as r:
             r.raise_for_status()
             res = r.json()
